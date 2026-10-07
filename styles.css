@@ -485,6 +485,7 @@ h1 strong { color: #ffca55; font-weight: 800; }
 }
 
 @media (max-width: 759px) {
+  .hero { min-height: 110svh; }
   .hero__content {
     margin-top: clamp(12px, 3svh, 36px);
     text-shadow: 0 1px 14px rgba(38, 11, 76, 0.35);
