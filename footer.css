@@ -69,8 +69,10 @@
   background: #000;
   color: var(--white);
   text-decoration: none;
-  transition: transform 160ms ease, border-color 160ms ease;
+  transition: transform 160ms ease, border-color 160ms ease, scale 140ms var(--ease-out);
 }
+
+.store-badge:active { scale: 0.97; }
 
 .store-badge:hover,
 .store-badge:focus-visible { transform: translateY(-2px); border-color: var(--white); }
