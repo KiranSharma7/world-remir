@@ -1,0 +1,283 @@
+/* Closing block, "Tihar night": winners (hidden until 17 Nov), app badges and footer, on WorldRemit's black footer ground.
+   A row of lit diyos, everything centred. */
+
+.sr-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+.close-a {
+  --raised: #0e0a14;
+  --line: rgba(255, 255, 255, 0.16);
+  --text: #ddd5e8;
+  --muted: #aca2bb;
+  --gold: #ffca55;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #000;
+  color: var(--white);
+}
+
+.close-a [hidden] { display: none !important; }
+
+.close-a ::selection { background: var(--purple); color: var(--white); }
+
+/* ---------- Shared pieces ---------- */
+.close-label {
+  margin: 0 0 8px;
+  color: #ffe1a0;
+  font-family: var(--font-devanagari);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.close-h2 {
+  margin: 0;
+  color: var(--white);
+  font-size: clamp(2rem, 6vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.close-intro {
+  margin: 12px 0 0;
+  color: var(--text);
+  font-size: 1.05rem;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+/* App Store / Google Play badges: stand-ins until the official artwork is dropped in */
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.store-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 178px;
+  height: 56px;
+  padding: 0 20px 0 14px;
+  border: 1px solid #a6a6a6;
+  border-radius: 10px;
+  background: #000;
+  color: var(--white);
+  text-decoration: none;
+  transition: transform 160ms ease, border-color 160ms ease;
+}
+
+.store-badge:hover,
+.store-badge:focus-visible { transform: translateY(-2px); border-color: var(--white); }
+
+.store-badge:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+.store-badge svg { flex: none; width: 28px; height: 28px; color: var(--white); }
+
+.store-badge__text { display: grid; text-align: left; line-height: 1.05; }
+
+.store-badge__small { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.01em; }
+
+.store-badge__small--caps { text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.72rem; }
+
+.store-badge__big { font-size: 1.32rem; font-weight: 700; letter-spacing: -0.015em; }
+
+/* ---------- A: Tihar night ---------- */
+.close-a::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: -1;
+  height: 260px;
+  background: radial-gradient(60% 100% at 50% 0%, rgba(245, 158, 11, 0.16), transparent 70%);
+  pointer-events: none;
+}
+
+.close-a__diyos {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: clamp(24px, 6vw, 80px);
+  padding: 48px 20px 0;
+}
+
+.close-a__diyos::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -2px;
+  width: min(92%, 980px);
+  height: 1px;
+  translate: -50% 0;
+  background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.55) 20%, rgba(245, 158, 11, 0.55) 80%, transparent);
+}
+
+.diyo { position: relative; display: block; width: 44px; height: 44px; }
+
+.diyo svg { position: relative; display: block; width: 100%; height: 100%; }
+
+.diyo::before {
+  content: "";
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  width: 76px;
+  height: 76px;
+  translate: -50% 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 210, 122, 0.5), rgba(245, 158, 11, 0.14) 42%, transparent 70%);
+  animation: diyo-flicker 3.4s ease-in-out infinite;
+  animation-delay: var(--d, 0s);
+}
+
+@keyframes diyo-flicker {
+  0%, 100% { opacity: 0.8; scale: 1; }
+  38% { opacity: 1; scale: 1.1; }
+  52% { opacity: 0.7; scale: 0.95; }
+  70% { opacity: 0.95; scale: 1.04; }
+}
+
+@media (max-width: 559px) {
+  .diyo:nth-child(n + 6) { display: none; }
+}
+
+.winners-a,
+.apps-a { padding: clamp(56px, 8vw, 88px) 20px 0; text-align: center; }
+
+.winners-a .close-intro,
+.apps-a .close-intro { max-width: 32rem; margin-inline: auto; }
+
+.winners-a__note {
+  --accent: var(--marigold-deep);
+  width: min(100%, 560px);
+  margin: 36px auto 0;
+  padding: 8px 8px 12px;
+  border-radius: 24px;
+  background: var(--white);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.55);
+  transform: rotate(-1.2deg);
+}
+
+.winners-a__note .pin { margin: 6px auto 4px; }
+
+.winners-a__list {
+  margin: 0;
+  padding: 4px 18px 6px;
+  border: 1px solid #fde6bd;
+  border-radius: 16px;
+  background: #fff7e8;
+  list-style: none;
+}
+
+.winners-a__list li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 16px;
+  padding: 16px 0;
+  text-align: left;
+}
+
+.winners-a__list li + li { border-top: 1px dashed #fde6bd; }
+
+.winners-a__list strong { color: #111; font-size: 1.1rem; font-weight: 700; }
+
+.winners-a__list span { color: var(--slate); }
+
+.apps-a { position: relative; }
+
+.apps-a::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -60px;
+  z-index: -1;
+  width: min(120%, 760px);
+  height: 320px;
+  translate: -50% 0;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(129, 63, 214, 0.32), transparent 70%);
+  pointer-events: none;
+}
+
+.apps-a .badges { justify-content: center; }
+
+.foot-a { margin-top: clamp(64px, 10vw, 104px); padding: 48px 20px 36px; border-top: 1px solid var(--line); }
+
+.foot-a__inner {
+  display: grid;
+  gap: 40px;
+  width: min(100%, 1080px);
+  margin: 0 auto;
+}
+
+.foot-a__brand img { display: block; width: 160px; height: auto; }
+
+.foot-a__brand p { max-width: 22rem; margin: 16px 0 0; color: var(--muted); font-size: 0.95rem; line-height: 1.55; }
+
+.foot-a__cols { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+
+.foot-a__cols h2 {
+  margin: 0 0 8px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.foot-a__cols ul { margin: 0; padding: 0; list-style: none; }
+
+.foot-a__cols a {
+  display: inline-block;
+  padding: 11px 0;
+  color: var(--text);
+  font-size: 0.95rem;
+  text-decoration: none;
+  text-underline-offset: 4px;
+  transition: color 160ms ease;
+}
+
+.foot-a__cols a:hover,
+.foot-a__cols a:focus-visible { color: var(--white); text-decoration: underline; text-decoration-color: var(--marigold); }
+
+.foot-a a:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; border-radius: 2px; }
+
+.foot-a__legal {
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.foot-a__legal p { margin: 0 0 4px; }
+
+.foot-a__age { color: var(--white); font-weight: 700; }
+
+@media (min-width: 760px) {
+  .foot-a__inner { grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); column-gap: 64px; }
+  .foot-a__legal { grid-column: 1 / -1; }
+}
+
+/* Badges in the "How to enter" section, on white */
+.steps__badges { justify-content: center; margin: 0 0 12px; }
+.steps__badges .store-badge:hover,
+.steps__badges .store-badge:focus-visible { border-color: #000; }
+.steps__badges .store-badge:focus-visible { outline-color: var(--purple); }
+
+@media (max-width: 759px) {
+  .badges { flex-direction: column; width: min(100%, 240px); }
+  .apps-a .badges,
+  .steps__badges { margin-inline: auto; }
+  .store-badge { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .diyo::before { animation: none; }
+  .store-badge { transition: none; }
+}
+

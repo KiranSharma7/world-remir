@@ -1,0 +1,151 @@
+/* Entry rules in brief: two pinned notes on white (reuses the .pin glyph from styles.css).
+   Kept in its own file like creators.css. */
+
+.rules-a {
+  padding: clamp(64px, 10vw, 112px) 20px;
+  background: var(--white);
+  color: var(--ink);
+}
+
+.rules-a__inner { width: min(100%, 1080px); margin: 0 auto; text-align: center; }
+
+.rules-a h2 {
+  margin: 0;
+  color: #111;
+  font-size: clamp(2rem, 6vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.rules-a__intro {
+  max-width: 30rem;
+  margin: 12px auto 0;
+  color: var(--slate);
+  font-size: 1.05rem;
+  line-height: 1.55;
+  text-wrap: balance;
+}
+
+.rules-a__board {
+  display: grid;
+  gap: 36px;
+  margin: clamp(40px, 6vw, 64px) auto 0;
+  padding-inline: 4px;
+  text-align: left;
+}
+
+.rules-a__note {
+  --accent: var(--marigold-deep);
+  --tint: #fff7e8;
+  --edge: #fde6bd;
+  --tilt: -1.2deg;
+  padding: 8px;
+  border: 1px solid #efedf2;
+  border-radius: 24px;
+  background: var(--white);
+  box-shadow: 0 10px 24px rgba(36, 16, 57, 0.12);
+  transform: rotate(var(--tilt));
+  transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.rules-a__note--purple { --accent: var(--purple); --tint: #f5effc; --edge: #e6d9f7; --tilt: 1.2deg; }
+
+.rules-a__note:hover { transform: rotate(0deg) translateY(-4px); }
+
+.rules-a__note .pin { fill: var(--accent); }
+
+.rules-a__panel {
+  padding: 22px 20px 10px;
+  border: 1px solid var(--edge);
+  border-radius: 16px;
+  background: var(--tint);
+}
+
+.rules-a h3 {
+  margin: 0 0 6px;
+  color: #111;
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.rules-a__list { margin: 0; padding: 0; list-style: none; }
+
+.rules-a__list li {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 14px;
+  align-items: start;
+  padding: 14px 0;
+}
+
+.rules-a__list li + li { border-top: 1px dashed var(--edge); }
+
+.rules-a__num {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 14px;
+  background: var(--accent);
+  color: var(--white);
+  font-size: 1.05rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.rules-a__list p {
+  margin: 6px 0 0;
+  color: var(--slate);
+  font-size: 1.05rem;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
+.rules-a__list strong { color: #111; font-weight: 700; }
+
+.rules-a__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: clamp(32px, 5vw, 48px);
+  padding: 10px 2px;
+  color: var(--purple);
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
+  transition: color 160ms ease;
+}
+
+.rules-a__link:hover,
+.rules-a__link:focus-visible { color: #6e2fc2; text-decoration-color: var(--marigold); }
+
+.rules-a__link svg {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+@media (min-width: 760px) {
+  .rules-a__board {
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(32px, 5vw, 64px);
+    width: min(100%, 960px);
+    align-items: start;
+  }
+  .rules-a__note { --tilt: -1.5deg; }
+  .rules-a__note--purple { --tilt: 1.5deg; margin-top: 40px; }
+  .rules-a__panel { padding: 24px 24px 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rules-a__note, .rules-a__note:hover { transition: none; transform: rotate(var(--tilt)); }
+}
