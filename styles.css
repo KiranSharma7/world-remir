@@ -491,13 +491,7 @@ h1 strong { color: #ffca55; font-weight: 800; }
     text-shadow: 0 1px 14px rgba(38, 11, 76, 0.35);
   }
   h1 { font-size: clamp(2.6rem, 12.5vw, 3.6rem); line-height: 1.08; }
-  .hero__english {
-    margin-top: 6px;
-    font-size: clamp(1.15rem, 5vw, 1.4rem);
-    font-weight: 500;
-    letter-spacing: -0.015em;
-    opacity: 0.92;
-  }
+  .hero__english { display: none; }
   .hero__offer {
     margin-top: 22px;
     font-size: clamp(1rem, 4.2vw, 1.15rem);
